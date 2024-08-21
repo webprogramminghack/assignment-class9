@@ -6,6 +6,10 @@ const team = {
 
   displayMembers() {
     // start coding here
+    this.members.map((member,index) => {
+      console.log(`${this.name}: ${member}`);
+    })
+    
   },
 };
 
