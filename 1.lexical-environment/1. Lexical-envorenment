@@ -1,0 +1,50 @@
+'use strict';
+
+function createCounter(initialValue) {
+  // Variabel privat untuk menyimpan nilai counter dan log
+  let counter = initialValue;
+  let logs = [];
+
+  return {
+    // Method untuk increment
+    increment(value) {
+      counter += value;
+      logs.push(`Incremented by ${value}, new value: ${counter}`);
+      console.log(`Counter: ${counter}`);
+    },
+    // Method untuk decrement
+    decrement(value) {
+      counter -= value;
+      logs.push(`Decremented by ${value}, new value: ${counter}`);
+      console.log(`Counter: ${counter}`);
+    },
+    // Method untuk reset counter ke nilai awal
+    reset() {
+      counter = initialValue;
+      logs.push(`Counter reset to initial value: ${counter}`);
+      console.log(`Counter: ${counter}`);
+    },
+    // Method untuk mendapatkan nilai saat ini dari counter
+    getValue() {
+      return counter;
+    },
+    // Method untuk mendapatkan semua log operasi
+    getLogs() {
+      return logs;
+    },
+  };
+}
+
+// Menguji fungsi createCounter
+const counter = createCounter(10);
+counter.increment(5); // Counter: 15
+counter.decrement(3); // Counter: 12
+counter.reset(); // Counter: 10
+console.log(counter.getValue()); // 10
+console.log(counter.getLogs());  //Output:
+
+// [
+//   "Incremented by 5, new value: 15",
+//   "Decremented by 3, new value: 12",
+//   "Counter reset to initial value: 10"
+// ]
