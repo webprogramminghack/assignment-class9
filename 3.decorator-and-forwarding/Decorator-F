@@ -1,0 +1,33 @@
+'use strict';
+
+const user = {
+  name: 'John',
+  age: 30,
+  greet(greeting) {
+    // Menggunakan backtick untuk template literal
+    console.log(`${greeting}, ${this.name}!`);
+  },
+  updateProfile(newName, newAge) {
+    this.name = newName;
+    this.age = newAge;
+    // Menggunakan backtick untuk template literal
+    console.log(`Profile updated: ${this.name}, ${this.age}`);
+  },
+};
+
+function delayDecorator(func, delay) {
+  return function (...args) {
+    const context = this; // Menyimpan konteks 'this'
+    setTimeout(function () {
+      func.apply(context, args); // Memanggil fungsi asli dengan 'this' dan argumen yang benar
+    }, delay);
+  };
+}
+
+// Mendekorasi metode greet dan updateProfile dengan delayDecorator
+user.greet = delayDecorator(user.greet, 2000);
+user.updateProfile = delayDecorator(user.updateProfile, 3000);
+
+// Menguji metode yang telah didekorasi
+user.greet('Hello'); // Output yang diharapkan setelah 2 detik: "Hello, John!"
+user.updateProfile('Jane', 25); // Output yang diharapkan setelah 3 detik: "Profile updated: Jane, 25"
