@@ -15,6 +15,10 @@ const user = {
 
 function delayDecorator(func, delay) {
   // start coding here
+  // new function that, when called, delays the execution of `func` by `ms` milliseconds.
+  return function () {
+    setTimeout(() => func.apply(this, arguments), delay);
+  };
 }
 
 user.greet = delayDecorator(user.greet, 2000);
