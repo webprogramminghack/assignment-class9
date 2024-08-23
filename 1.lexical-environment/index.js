@@ -2,6 +2,30 @@
 
 function createCounter(initialValue) {
   // start coding here
+  let value = Number(initialValue);
+  let logs = []
+  return {
+    increment(...args){
+      const val2 = args.reduce((i, v) => i + v, 0)
+      value = value + val2;
+      logs.push(`Incremented by ${val2}, new value: ${value}`)
+    },
+    decrement(...args){
+      const val2 = args.reduce((i, v) => i + v, 0)
+      value = value - val2;
+      logs.push(`Dncremented by ${val2}, new value: ${value}`)
+    }, 
+    reset(){
+      value = initialValue
+      logs.push(`Counter Reset To Initial Value ${value}`)
+    },
+    getValue(){
+      return value
+    },
+    getLogs(){
+      return logs
+    }
+  };
 }
 
 const counter = createCounter(10);

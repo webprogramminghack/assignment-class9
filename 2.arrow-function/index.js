@@ -6,6 +6,7 @@ const team = {
 
   displayMembers() {
     // start coding here
+    this.members.forEach((el) => console.log(`${this.name}: ${el}`));
   },
 };
 
