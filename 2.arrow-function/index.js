@@ -5,7 +5,10 @@ const team = {
   members: ['Alice', 'Bob', 'Charlie'],
 
   displayMembers() {
-    // start coding here
+    // Use arrow function to ensure 'this' refers to the 'team' object
+    this.members.forEach((member) => {
+      console.log(`${this.name}: ${member}`);
+    });
   },
 };
 
