@@ -1,7 +1,38 @@
 'use strict';
 
 function createCounter(initialValue) {
-  // start coding here
+  let counter = initialValue;
+  let logs = [];
+
+  function updateLog(action, value) {
+    const logMessage = `${action} by ${value}, new value: ${counter}`;
+    logs.push(logMessage);
+  }
+
+  return {
+    increment: function (value) {
+      counter += value;
+      updateLog('Incremented', value);
+      return this; // Make it chainable
+    },
+    decrement: function (value) {
+      counter -= value;
+      updateLog('Decremented', value);
+      return this; // Make it chainable
+    },
+    reset: function () {
+      counter = initialValue;
+      const logMessage = `Counter reset to initial value: ${counter}`;
+      logs.push(logMessage);
+      return this; // Make it chainable
+    },
+    getValue: function () {
+      return counter;
+    },
+    getLogs: function () {
+      return logs;
+    },
+  };
 }
 
 const counter = createCounter(10);

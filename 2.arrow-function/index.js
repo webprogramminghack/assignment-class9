@@ -5,7 +5,9 @@ const team = {
   members: ['Alice', 'Bob', 'Charlie'],
 
   displayMembers() {
-    // start coding here
+    this.members.forEach((member) => {
+      console.log(`${this.name}: ${member}`);
+    });
   },
 };
 
