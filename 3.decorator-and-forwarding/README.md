@@ -45,3 +45,51 @@ user.updateProfile = delayDecorator(user.updateProfile, 3000);
 user.greet('Hello'); // Expected output after 2 seconds: "Hello, John!"
 user.updateProfile('Jane', 25); // Expected output after 3 seconds: "Profile updated: Jane, 25"
 ```
+
+# Membuat Dekorator Penundaan di JavaScript
+
+## Tujuan
+
+Pelajari cara membuat fungsi dekorator dalam JavaScript yang menunda eksekusi suatu metode sambil mempertahankan konteks `ini` dan mendukung sejumlah argumen. Tugas ini akan membantu Anda memahami cara menggabungkan metode dengan fungsionalitas tambahan menggunakan dekorator, mengelola aliran argumen, dan memastikan konteks `ini` yang benar dipertahankan.
+
+## Petunjuk
+
+### 1. Memahami Konsep
+
+- **Fungsi Dekorator:** Dekorator adalah fungsi yang menggunakan fungsi lain sebagai argumen, menggabungkannya dalam beberapa fungsi tambahan, dan mengembalikan fungsi baru dengan perilaku yang ditingkatkan.
+- **`setTimeout`:** Fungsi JavaScript bawaan yang menjalankan fungsi setelah penundaan tertentu.
+
+### 2. Menerapkan Fungsi `delayDecorator`
+
+Anda akan mengimplementasikan fungsi bernama `delayDecorator` yang:
+
+- Menerima fungsi `func` dan penundaan dalam milidetik `ms` sebagai argumennya.
+- Mengembalikan fungsi baru yang, ketika dipanggil, menunda eksekusi `func` sebanyak `ms` milidetik.
+- Fungsi yang dikembalikan harus menangani konteks `ini` dengan benar dan mendukung sejumlah argumen
+
+### 3. Menghias Metode dalam suatu Objek
+
+Objek `pengguna` berikut memiliki dua metode: `sapa` dan `updateProfile`. Tugas Anda adalah menggunakan `delayDecorator` untuk menunda eksekusi metode ini.
+
+```javascript
+pengguna konstan = {
+  nama: 'John',
+  usia: 30,
+  salam(salam) {
+    console.log(`${salam}, ${ini.nama}!`);
+  },
+  updateProfile(Nama Baru, Usia Baru) {
+    ini.nama = Nama baru;
+    this.age = newAge;
+    console.log(`Profil diperbarui: ${this.name}, ${this.age}`);
+  },
+};
+
+// Langkah 4: Hiasi metode sapa dan updateProfile dengan delayDecorator
+pengguna.sapa = penundaanDecorator(pengguna.sapa, 2000);
+pengguna.updateProfile = penundaanDecorator(pengguna.updateProfile, 3000);
+
+// Langkah 5: Uji metode yang dihias
+pengguna.sapa('Halo'); // Hasil yang diharapkan setelah 2 detik: "Halo, John!"
+pengguna.updateProfile('Jane', 25); // Hasil yang diharapkan setelah 3 detik: "Profil diperbarui: Jane, 25"
+```

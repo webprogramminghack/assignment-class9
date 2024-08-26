@@ -40,3 +40,46 @@ team.displayMembers();
 // Development Team: Bob
 // Development Team: Charlie
 ```
+
+# Penggunaan Fungsi Panah Tingkat Lanjut di JavaScript
+
+## Tujuan
+
+Perdalam pemahaman Anda tentang fungsi panah di JavaScript dengan menjelajahi fitur dan batasan spesifiknya. Tugas ini akan membantu Anda memahami perbedaan fungsi panah dari fungsi biasa, terutama dalam konteks `ini` dan `argumen`. Anda akan menerapkan konsep-konsep ini dalam berbagai skenario untuk memperkuat pemahaman Anda.
+
+## Petunjuk
+
+### 1. Memahami Konsep Utama
+
+Fungsi panah di JavaScript memiliki beberapa karakteristik penting yang membedakannya dari fungsi biasa:
+
+- **Tidak Ada Pengikatan `ini`:** Fungsi panah tidak memiliki `ini` sendiri. Sebaliknya, mereka mewarisi `ini` dari konteks leksikal luar.
+- **Tidak Ada Objek `argumen`:** Fungsi panah tidak memiliki objek `argumen` sendiri.
+- **Tidak Dapat Digunakan sebagai Konstruktor:** Fungsi panah tidak dapat digunakan sebagai konstruktor dan tidak dapat dipanggil dengan `baru`.
+
+### 2. Menerapkan Metode Menggunakan Fungsi Panah
+
+Anda akan mengimplementasikan metode objek yang menggunakan fungsi panah untuk mendemonstrasikan perbedaan cara `ini` ditangani dibandingkan dengan fungsi biasa.
+
+Gunakan `console.log` untuk mencetak hasilnya ke konsol.
+
+## Contoh Penggunaan
+
+```javascript
+// Langkah 1: Buat objek dengan metode menggunakan fungsi panah
+tim const = {
+  nama: 'Tim Pengembang',
+  anggota: ['Alice', 'Bob', 'Charlie'],
+
+  anggota tampilan() {
+    // Terapkan logika di sini
+  },
+};
+
+// Uji metode displayMembers
+tim.displayMembers();
+// Keluaran yang diharapkan:
+// Tim Pengembang: Alice
+// Tim Pengembang: Bob
+// Tim Pengembang: Charlie
+```
