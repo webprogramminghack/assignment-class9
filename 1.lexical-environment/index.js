@@ -1,7 +1,39 @@
 'use strict';
 
 function createCounter(initialValue) {
-  // start coding here
+  let counter = initialValue;
+  const loging = []; 
+
+  
+  function countering() {
+    return {
+      
+      increment: function(value) {
+        counter += value;
+        loging.push("Incremented by " + value + " new value: " + counter);
+      },
+
+      decrement: function(value) {
+        counter -= value;
+        loging.push("Decremented by " + value + " new value: " + counter);
+      },
+
+      reset: function() {
+        counter = initialValue;
+        loging.push("Counter reset to initial value: " + counter);
+      },
+
+      getValue: function() {
+        return counter;
+      },
+
+      getLogs: function() {
+        return loging;
+      }
+    };
+  }
+
+  return countering();
 }
 
 const counter = createCounter(10);

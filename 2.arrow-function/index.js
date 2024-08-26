@@ -6,7 +6,8 @@ const team = {
 
   displayMembers() {
     // start coding here
-  },
+    this.members.forEach((member) => console.log(this.name + ":" + member));
+  }
 };
 
 team.displayMembers();
