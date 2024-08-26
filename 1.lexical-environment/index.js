@@ -5,29 +5,38 @@ function createCounter(initialValue) {
   let privateValue = initialValue;
   const logs = [];
 
-  function changeBy(val) {
+  function increment(val) {
     privateValue += val;
+    logs.push(`Incremented by ${val}, new value: ${privateValue}`);
+    return this;
+  }
+  
+  function decrement(val) {
+    privateValue -= val;
+    logs.push(`Decremented by ${val}, new value: ${privateValue}`);
+    return this;
+  }
+
+  function reset() {
+    privateValue = initialValue;
+    logs.push(`Counter reset to initial value: ${initialValue}`);
+    return this;
+  }
+
+  function getValue() {
+    return privateValue;
+  }
+
+  function getLogs() {
+    return logs;
   }
 
   return {
-    increment(val) {
-      changeBy(val);
-      logs.push(`Incremented by ${val}, new value: ${privateValue}`);
-    },
-    decrement(val) {
-      changeBy(-val);
-      logs.push(`Decremented by ${val}, new value: ${privateValue}`);
-    },
-    reset() {
-      privateValue = initialValue;
-      logs.push(`Counter reset to initial value: ${initialValue}`);
-    },
-    getValue() {
-      return privateValue;
-    },
-    getLogs() {
-      return logs;
-    }
+    increment,
+    decrement,
+    reset,
+    getValue,
+    getLogs
   }
 }
 
@@ -37,8 +46,8 @@ counter.decrement(3);
 counter.reset();
 console.log(counter.getValue()); // 10
 console.log(counter.getLogs()); // // this should produce the following:
-// [
-//   "Incremented by 5, new value: 15",
-//   "Decremented by 3, new value: 12",
-//   "Counter reset to initial value: 10"
-// ]
+[
+  "Incremented by 5, new value: 15",
+  "Decremented by 3, new value: 12",
+  "Counter reset to initial value: 10"
+]
