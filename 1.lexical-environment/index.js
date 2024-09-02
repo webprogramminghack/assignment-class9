@@ -2,6 +2,38 @@
 
 function createCounter(initialValue) {
   // start coding here
+  let value = initialValue;
+  const logs = [];
+  function increment(x) {
+    value += x;
+    logs.push(`Incremented by ${x}, new value: ${value}`);
+  }
+
+  function decrement(x) {
+    value -= x;
+    logs.push(`Decremented by ${x}, new value: ${value}`);
+  }
+
+  function reset(x) {
+    value = initialValue;
+    logs.push(`Counter reset to initial value: ${value}`);
+  }
+
+  function getValue(x) {
+    return value;
+  }
+
+  function getLogs(x) {
+    return logs;
+  }
+
+  return {
+    increment,
+    decrement,
+    reset,
+    getValue,
+    getLogs,
+  };
 }
 
 const counter = createCounter(10);
