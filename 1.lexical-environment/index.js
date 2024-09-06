@@ -44,7 +44,7 @@ const counter = createCounter(10);
 counter.increment(5);
 counter.decrement(3);
 counter.reset();
-console.log(counter.getValue()); // 10
+counter.getValue(); // 10
 console.log(counter.getLogs()); // // this should produce the following:
 // [
 //   "Incremented by 5, new value: 15",
