@@ -2,7 +2,31 @@
 
 function createCounter(initialValue) {
   // start coding here
+  let value = initialValue;
+  let logs = [];
+
+  return {
+    increment: function (amount) {
+      value += amount;
+      logs.push(`Incremented by ${amount}, new value: ${value}`);
+    },
+    decrement: function (amount) {
+      value -= amount;
+      logs.push(`Decremented by ${amount}, new value: ${value}`);
+    },
+    reset: function () {
+      value = initialValue;
+      logs.push(`Counter reset to initial value: ${initialValue}`);
+    },
+    getValue: function () {
+      return value;
+    },
+    getLogs: function () {
+      return logs;
+    }
+  };
 }
+
 
 const counter = createCounter(10);
 counter.increment(5);
